@@ -14,9 +14,9 @@
 
 <body>
 
-    <nav class="navbar bg-dark px-4 py-5 mb-5 ">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1 text-white">Navbar</span>
+    <nav class="navbar bg-dark px-4 py-5 mb-5" style="background: linear-gradient(to right, #3B3B98,#182C61)">
+        <div class="container-fluid justify-content-center">
+            <span class="h1 mb-0 text-white">Weather Dashboard</span>
         </div>
     </nav>
 
@@ -24,16 +24,37 @@
         <div class="row d-flex" style="margin-right: 1rem">
             <div class="col-lg-2 col-12">
                 <form id="search">
-                    <label class="h2 px-2" for="searchbar">Search for City</label>
-                    <input type="text" class="h4 m-2" style="width: 90%" id="searchbar">
+                    <label class="h2 px-4" for="searchbar">Search for City</label>
+                    <input type="text" class="h5 m-4" style="width: 90%; min-height: 40px " id="searchbar">
                 </form>
                 <hr>
-
+                <div class="h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center" style="width: 90%; min-height: 50px">
+                    <h4 style="margin:auto">Recent Cities</h4>
+                </div>
+                <div class="h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center" style="width: 90%; min-height: 50px">
+                    <h4 style="margin:auto">Recent Cities</h4>
+                </div>
+                
             </div>
-            <div class="col-lg-10 border">
-                <div class="text-left h2">Weather Data</div>
+            <div class="col-lg-10">
+                <div class="text-left p-3 border-dark-subtle rounded-2" style="border: 3px solid" id="weather-data">
+                    <h2>Weather Data</h2>
+
+                </div>
+                <div class="text-left p-3" >
+                    <h2>5-Day Forecast</h2>
+                    <div class="row justify-content-between" id="future-weather-data">
+                        
+                    </div>
+                </div>
             </div>
         </div>
+
+                
+            <div class="col-lg-10" style="margin-top: 2rem">
+                
+            </div>
+        
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -45,6 +66,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="./assets/js/script.js"></script>
