@@ -39,23 +39,43 @@ function displayRecentSearches () {
 
     // For loop goes through only the first 5 elements in the array and displays them.
     if (savedSearches !== null) {
-    for (let i = 0; i < 5; i++) {
-        const recentSearch = savedSearches[i];
+        if (savedSearches.length <= 5) {
+            for (let i = 0; i < savedSearches.length; i++) {
+                const recentSearch = savedSearches[i];
+        
+                const recentCityList = $('<div>')
+                recentCityList.addClass('h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center uniquecity')
+                recentCityList.attr('style', 'width: 90%; min-height: 50px; cursor: pointer')
+                recentCityList.attr('id', `recent-search-button-${[i]}`)
+                recentCityList.attr('data-city-name', `${savedSearches[i]}`)
+        
+                const recentCityName = $('<h4>')
+                recentCityName.attr('style', 'margin:auto')
+                recentCityName.attr('id', `recent-search-button-${[i]}`)
+                recentCityName.text(recentSearch)
+        
+                recentCityContainer.append(recentCityList)
+                recentCityList.append(recentCityName)
+               }
+        } else {
+            for (let i = 0; i < 5; i++) {
+                const recentSearch = savedSearches[i];
 
-        const recentCityList = $('<div>')
-        recentCityList.addClass('h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center uniquecity')
-        recentCityList.attr('style', 'width: 90%; min-height: 50px; cursor: pointer')
-        recentCityList.attr('id', `recent-search-button-${[i]}`)
-        recentCityList.attr('data-city-name', `${savedSearches[i]}`)
+                const recentCityList = $('<div>')
+                recentCityList.addClass('h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center uniquecity')
+                recentCityList.attr('style', 'width: 90%; min-height: 50px; cursor: pointer')
+                recentCityList.attr('id', `recent-search-button-${[i]}`)
+                recentCityList.attr('data-city-name', `${savedSearches[i]}`)
 
-        const recentCityName = $('<h4>')
-        recentCityName.attr('style', 'margin:auto')
-        recentCityName.attr('id', `recent-search-button-${[i]}`)
-        recentCityName.text(recentSearch)
+                const recentCityName = $('<h4>')
+                recentCityName.attr('style', 'margin:auto')
+                recentCityName.attr('id', `recent-search-button-${[i]}`)
+                recentCityName.text(recentSearch)
 
-        recentCityContainer.append(recentCityList)
-        recentCityList.append(recentCityName)
-       }
+                recentCityContainer.append(recentCityList)
+                recentCityList.append(recentCityName)
+            }
+        }
     }
 }
 
