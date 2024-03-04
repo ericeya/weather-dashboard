@@ -19,4 +19,4 @@ This is a project for implementing third party API that is responsive to user in
 
 ## Link to deployed page
 
-[Click here to view deployed page](https://ericeya.github.io/weather-board)
+[Click here to view deployed page](https://ericeya.github.io/weather-dashboard)
