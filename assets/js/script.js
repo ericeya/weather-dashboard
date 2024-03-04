@@ -1,10 +1,3 @@
-
-
-// const requestForecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`
-
-// const requestApiUrl = `http://api.openweathermap.org/data/2.5/forecast?id=${APIKey}`
-// const queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
-
 const searchCity = $('#searchbar')
 const formSection = $('form')
 const form= document.querySelector('form')
@@ -85,7 +78,7 @@ function searchWeather(event) {
     const city = searchCity.val()
    
     // This is the API URL for current weather data.
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
 
     fetch(weatherUrl).then(function(response) {
         return response.json();
@@ -183,7 +176,7 @@ function searchWeatherByClick(id) {
         }   
     }
     
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
 
     fetch(weatherUrl).then(function(response) {
         return response.json();
