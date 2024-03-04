@@ -157,6 +157,9 @@ function searchWeather(event) {
         saveToLocalStorage(savedSearches)
     
         displayRecentSearches()
+
+        // clear out previous search value.
+        searchCity.val('')
         
     })
 
