@@ -33,13 +33,13 @@ function loadFromLocalStorage() {
 
 function displayRecentSearches () {
     let savedSearches = JSON.parse(localStorage.getItem('saved-searches'))
-    
+
+    // This empty function prevents the lists from stacking multiple times on refresh.
     recentCityContainer.empty()
 
+    // For loop goes through only the first 5 elements in the array and displays them.
     for (let i = 0; i < 5; i++) {
         const recentSearch = savedSearches[i];
-        
-        
 
         const recentCityList = $('<div>')
         recentCityList.addClass('h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center uniquecity')
@@ -54,19 +54,15 @@ function displayRecentSearches () {
 
         recentCityContainer.append(recentCityList)
         recentCityList.append(recentCityName)
-
-        
     }
 }
 
 function searchWeather(event) {
     event.preventDefault();
 
-    // const clickCity = $('#recent-search-button')
-
     const city = searchCity.val()
-    // const cityNameByRecent = clickCity.children('h4').val()
    
+    // This is the API URL for current weather data.
     const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
 
     fetch(weatherUrl).then(function(response) {
@@ -101,9 +97,11 @@ function searchWeather(event) {
             currentWeather = '🌪️'
         }
 
+        // This empty() function is to prevent data from stacking on searching new cities.
         $('#weather-data').children('div').empty()
         $('#future-weather-data').empty()
 
+        // create elements and place them into appropriate element body in html.
         const currentCityData = $('<div>')
         currentCityData.addClass('card-container')
         currentCityData.attr('id', 'card-data')
@@ -197,9 +195,11 @@ function searchWeatherByClick(id) {
             currentWeather = '🌪️'
         }
 
+        // This empty() function is to prevent data from stacking on searching new cities.
         $('#weather-data').children('div').empty()
         $('#future-weather-data').empty()
 
+        // create elements and place them into appropriate element body in html.
         const currentCityData = $('<div>')
         currentCityData.addClass('card-container')
         currentCityData.attr('id', 'card-data')
@@ -224,7 +224,8 @@ function searchWeatherByClick(id) {
         currentCityData.append(currentCityWind)
         currentCityData.append(currentCityHumidity)
 
-
+        // The Forecast API requires latitude and longitude. This info is available in the current weather data.
+        // Hence, it has been passed through as a parameter to the searchForecast function.
         searchForecast(cityLat, cityLon)    
         
         // This would return [] if there's no data in localStorage
@@ -245,7 +246,9 @@ function searchWeatherByClick(id) {
 
 }
 
+// This function is very similar to get searchWeather function. Variables have been given a slightly different name for less confusion.
 function searchForecast(lat,lon) {
+    // Fetch forecast API URL with lat/lon passed thru from searchWeather func
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=${lat}&lon=${lon}&appid=b3c89b198d75e42b324fef56894937ee`
 
     fetch(forecastUrl).then(function(response) {
@@ -280,6 +283,7 @@ function searchForecast(lat,lon) {
                 futureWeather = '🌪️'
             }
 
+            // create elements and place them into appropriate element body in html.
             const newCard = $('<div>')
             newCard.addClass('card col-lg-2 border m-3 text-bg-primary')
             newCard.attr('style', 'min-height: 300px')
@@ -320,23 +324,23 @@ function searchForecast(lat,lon) {
 
 }
 
+// This function is required to grab the id of the recent search list when clicked on by using event.target.id.
+// Once the id is grabbed, it's passed as a parameter to searchWeatherByClick which is same function as searchWeather
+// First portion of searchWeatherByClick has been modified to grab proper city name to search thru element attributes.
 function mouseClickValue(event) {
     const mousePointer = event.target.id
     console.log(mousePointer);
     searchWeatherByClick(mousePointer)
 }
 
+// This function loads from localStorage to show saved recent search lists.
 displayRecentSearches()
 
 form.addEventListener('submit', searchWeather)
 
+
 recentCityContainer.on('click', mouseClickValue)
 
-const tableCity = recentCityContainer.children()
-const tableCityChild = tableCity[0].attributes[3].nodeValue
-
-console.log(tableCity)
-console.log(tableCityChild);
 
 
 
