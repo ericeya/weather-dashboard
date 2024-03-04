@@ -158,10 +158,12 @@ function searchWeather(event) {
     
         displayRecentSearches()
 
-        // clear out previous search value.
-        searchCity.val('')
+        
         
     })
+    
+    // clear out previous search value.
+    searchCity.val('')
 
 }
 
