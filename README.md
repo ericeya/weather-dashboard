@@ -13,9 +13,9 @@ This is a project for implementing third party API that is responsive to user in
 ## Screenshots of the deployed page
 
 ![Screenshot of deployed page](./assets/images/screenshot1.png)
-![Screenshot of deployed page](./assets/images/screenshot1.png)
-![Screenshot of deployed page](./assets/images/screenshot1.png)
-![Screenshot of deployed page](./assets/images/screenshot1.png)
+![Screenshot of deployed page](./assets/images/screenshot2.png)
+![Screenshot of deployed page](./assets/images/screenshot3.png)
+![Screenshot of deployed page](./assets/images/screenshot4.png)
 
 ## Link to deployed page
 

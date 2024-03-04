@@ -178,6 +178,9 @@ function searchWeatherByClick(id) {
     
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=b3c89b198d75e42b324fef56894937ee`
 
+    // clear out search input field
+    searchCity.text('')
+
     fetch(weatherUrl).then(function(response) {
         return response.json();
     })
