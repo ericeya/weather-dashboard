@@ -38,6 +38,7 @@ function displayRecentSearches () {
     recentCityContainer.empty()
 
     // For loop goes through only the first 5 elements in the array and displays them.
+    if (savedSearches !== null) {
     for (let i = 0; i < 5; i++) {
         const recentSearch = savedSearches[i];
 
@@ -54,6 +55,7 @@ function displayRecentSearches () {
 
         recentCityContainer.append(recentCityList)
         recentCityList.append(recentCityName)
+       }
     }
 }
 
