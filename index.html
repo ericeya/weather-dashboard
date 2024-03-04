@@ -22,19 +22,15 @@
 
     <main class="container-fluid">
         <div class="row d-flex" style="margin-right: 1rem">
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-2 col-12" id="search-area">
                 <form id="search">
                     <label class="h2 px-4" for="searchbar">Search for City</label>
                     <input type="text" class="h5 m-4" style="width: 90%; min-height: 40px " id="searchbar">
+                    <button class="h4 border bg-primary mx-4 rounded" style="width: 90%; min-height: 45px">Search</button>
                 </form>
                 <hr>
-                <div class="h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center" style="width: 90%; min-height: 50px">
-                    <h4 style="margin:auto">Recent Cities</h4>
+                <div class="recent-city-container">
                 </div>
-                <div class="h4 px-2 m-4 h-auto rounded bg-secondary d-flex align-items-center" style="width: 90%; min-height: 50px">
-                    <h4 style="margin:auto">Recent Cities</h4>
-                </div>
-                
             </div>
             <div class="col-lg-10">
                 <div class="text-left p-3 border-dark-subtle rounded-2" style="border: 3px solid" id="weather-data">
